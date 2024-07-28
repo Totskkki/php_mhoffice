@@ -244,7 +244,7 @@ if (isset($_POST['save_checkup'])) {
 
 
             <div class="app-header d-flex align-items-center ">
-                <a href="records_checkup.php" class="btn btn-primary">
+                <a href="checkup.php" class="btn btn-primary">
                 <i class="icon-chevron-left"></i> Back</i>
                 </a>
                 <!-- App header actions start -->

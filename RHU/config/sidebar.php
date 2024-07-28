@@ -43,7 +43,9 @@
         </a>
       </li>
       
-      <li class="treeview <?php if (strpos($_SERVER['REQUEST_URI'], 'checkup.php') !== false || strpos($_SERVER['REQUEST_URI'], 'maternity.php')
+      <li class="treeview <?php if (strpos($_SERVER['REQUEST_URI'], 'checkup.php') 
+      !== false || strpos($_SERVER['REQUEST_URI'], 'maternity.php')
+      !== false || strpos($_SERVER['REQUEST_URI'], 'prenatal.php')
        !== false || strpos($_SERVER['REQUEST_URI'], 'animal_bite.php') !== false || strpos($_SERVER['REQUEST_URI'], 'vaccination.php')
        !== false || strpos($_SERVER['REQUEST_URI'], 'checkup_record.php') 
         !== false || strpos($_SERVER['REQUEST_URI'], 'records_animalbite.php')
@@ -60,7 +62,10 @@
             <a href="checkup.php">Checkup</a>
           </li>
           <li <?php if ($Page === 'maternity.php') echo 'class="active"'; ?>>
-            <a href="maternity.php">Birthing/Prenatal</a>
+            <a href="maternity.php">Birthing</a>
+          </li>
+          <li <?php if ($Page === 'prenatal.php') echo 'class="active"'; ?>>
+            <a href="prenatal.php">Prenatal</a>
           </li>
           <li <?php if ($Page === 'animal_bite.php' ) echo 'class="active"'; ?>>
             <a href="animal_bite.php">Animal bite & care</a>

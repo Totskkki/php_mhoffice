@@ -101,40 +101,21 @@ include './common_service/common_functions.php';
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">Birthing</h5>
+                    <h5 class="card-title">Prenatal</h5>
                   </div>
                   <div class="card-body">
                     <div <div class="col-12">
                       <div class="d-flex gap-2 justify-content-end mb-2">
-
-                        <!-- <a href="records_prenatal.php" type="button" class="btn btn-outline-success ms-1">
+                        
+                        <a href="records_prenatal.php" type="button" class="btn btn-outline-success ms-1">
                           Prenatal Records
-                        </a> -->
-                        <a href="records_birthing.php" type="button" class="btn btn-outline-success ms-1">
-                          Birthing Records
                         </a>
+                        <!-- <a href="records_birthing.php" type="button" class="btn btn-outline-success ms-1">
+                          Birthing Records
+                        </a> -->
                       </div>
                     </div>
 
-                    <!-- Confirmation Modal -->
-
-                    <div class="modal fade" id="confirmationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="confirmationModalLabel">Confirm Birthing Admission</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            Are you sure you want to request birthing admission for this patient?
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-sm" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-info" id="confirmRequest">Confirm</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
 
                     <div class="table-responsive">
                       <table id="all_patients" class="table table-striped ">
@@ -148,12 +129,7 @@ include './common_service/common_functions.php';
                             <th>Consultation Purpose</th>
                             <th>Current/Old Patient</th>
                             <th>Status</th>
-                            <th>
-																	<div class="d-flex align-items-center">
-																		<span class="icon-settings me-2 fs-4"></span>
-																		Action
-																	</div>
-																</th>
+                            <th class="text-center">Action</th>
                             <?php
                             $query = "SELECT users.*, family.brgy, family.purok, family.province, mem.*, complaints.*
                              FROM tbl_patients AS users 
@@ -210,27 +186,22 @@ include './common_service/common_functions.php';
                                 }
                                 ?>
                               </td>
-                              <!-- <td class="text-center">
-                                <?php
-
-                                // $redirectUrl = '';
-                                // if ($row['consultation_purpose'] == 'Prenatal') {
-                                //   $redirectUrl = 'form_prenatal.php';
-                                // } elseif ($row['consultation_purpose'] == 'Birthing') {
-                                //   $redirectUrl = 'form_birthing.php';
-                                // }
-
-                                // if (!empty($redirectUrl)) {
-                                //   echo '<a href="' . $redirectUrl . '?id=' . $row['complaintID'] . '" class="btn btn-info btn-sm">consult</a>';
-                                // } else {
-                                //   echo '<span class="btn btn-info btn-sm disabled">Not Applicable</span>';
-                                // }
-                                ?>
-                              </td> -->
                               <td class="text-center">
-                                <a href="form_birthing.php?id=<?php echo $row['complaintID']; ?>" class="btn btn-info btn-sm  btn-request">
-                                <i class="icon-check-circle"></i> Request
-                                </a>
+                                <?php
+                               
+                                $redirectUrl = '';
+                                if ($row['consultation_purpose'] == 'Prenatal') {
+                                  $redirectUrl = 'form_prenatal.php';
+                                } elseif ($row['consultation_purpose'] == 'Birthing') {
+                                  $redirectUrl = 'form_birthing.php';
+                                }
+
+                                if (!empty($redirectUrl)) {
+                                  echo '<a href="' . $redirectUrl . '?id=' . $row['complaintID'] . '" class="btn btn-info btn-sm">consult</a>';
+                                } else {
+                                  echo '<span class="btn btn-info btn-sm disabled">Not Applicable</span>';
+                                }
+                                ?>
                               </td>
 
                             </tr>
@@ -286,21 +257,6 @@ include './common_service/common_functions.php';
   <?php include './config/data_tables_js.php'; ?>
 
 
-  <script>
-    $(document).ready(function() {
-      var requestUrl;
-
-      $('.btn-request').on('click', function(e) {
-        e.preventDefault();
-        requestUrl = $(this).attr('href');
-        $('#confirmationModal').modal('show');
-      });
-
-      $('#confirmRequest').on('click', function() {
-        window.location.href = requestUrl;
-      });
-    });
-  </script>
   <script>
     $(document).ready(function() {
       $("#all_patients").DataTable({

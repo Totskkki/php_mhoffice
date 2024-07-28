@@ -101,7 +101,7 @@ include './common_service/common_functions.php';
                             <div class="col-12">
                                 <div class="card mb-4">
                                     <div class="card-header">
-                                        <h5 class="card-title"> <span> <a href="maternity.php" type="button" class="btn btn-primary float-end">
+                                        <h5 class="card-title"> <span> <a href="prenatal.php" type="button" class="btn btn-primary float-end">
                                                     <i class="icon-chevron-left"></i> Back
 
                                                 </a></span></h5>

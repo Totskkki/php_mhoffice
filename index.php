@@ -184,21 +184,21 @@ if (isset($_POST['login'])) {
 }
 
 
-if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
-  if ($_SESSION['user_type'] === 'RHU') {
+// if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+//   if ($_SESSION['user_type'] === 'RHU') {
 
-    header("location: RHU/dashboard-mho.php");
-    exit;
-  } elseif ($_SESSION['user_type'] === 'BHW') {
-    $disableInputs = true;
-    header("location: home.php");
-    exit;
-  } elseif ($_SESSION['user_type'] === 'Admin') {
+//     header("location: RHU/dashboard-mho.php");
+//     exit;
+//   } elseif ($_SESSION['user_type'] === 'BHW') {
+//     $disableInputs = true;
+//     header("location: home.php");
+//     exit;
+//   } elseif ($_SESSION['user_type'] === 'Admin') {
 
-    header("location: admin/dashboard.php");
-    exit;
-  }
-}
+//     header("location: admin/dashboard.php");
+//     exit;
+//   }
+// }
 
 // Check if user exists and password matches
 //   if ($result && password_verify($password, $result['password'])) {
